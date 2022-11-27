@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>memo & draw</title>
+    <style>
+      @import url(mainstyle.css);
+    </style>
+    <script>
+      function show() {
+        document.getElementById("fig").src = "이스터에그.jpg";
+      }
+      function hide() {
+        document.getElementById("fig").src = "";
+      }
+    </script>
+  </head>
+
+  <body id="body" scrolling="no">
+    <header class="header">
+      <div align="center">
+        <h1
+          id="title"
+          href="lalalalala.html"
+          target="_self"
+          onmouseover="show()"
+          onmouseout="hide()"
+        >
+          Draw & Memo
+        </h1>
+      </div>
+      <nav id="menubar" align="center">
+        <ul>
+          <li>
+            <a href="index2.html" target="iframe1"><h3>Draw</h3></a>
+          </li>
+          <li>
+            <a href="memo.html" target="iframe1"><h3>Memo</h3></a>
+          </li>
+        </ul>
+      </nav>
+      <div align="center">
+        <img id="fig" src="" />
+      </div>
+      <div id="BGmusic">
+        <details>
+          <summary><strong>Play Music</strong></summary>
+          <audio float="right" src="Beat.mp3" controls loop></audio>
+        </details>
+      </div>
+    </header>
+    <section id="section" scrolling="no">
+      <iframe class="iframe1" src="index2.html" name="iframe1"></iframe>
+    </section>
+  </body>
+</html>

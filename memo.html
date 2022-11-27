@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>메모장</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @import url(style.css);
+    </style>
+  </head>
+
+  <body>
+    <aside class="aside2">
+      <div class="header" style="color: white">
+        Click here
+        <hr />
+      </div>
+      <div align="center">
+        <form>
+          <select name="select-font-name" id="select-font-name">
+            <option style="text-align: center">Font name</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Franklin Gothic Medium">
+              Franklin Gothic Medium
+            </option>
+            <option value="Arial Narrow">Arial Narrow</option>
+            <option value="Open Sans">Open Sans</option>
+            <option value="Segoe UI">Segoe UI</option>
+            <option value="Lucida Sans">Lucida Sans</option>
+            <option value="Lucida Sans Regular">Lucida Sans Regular</option>
+            <option value="Lucida Grande">Lucida Grande</option>
+            <option value="Noto Sans KR">Noto Sans KR</option>
+            <option value="Black Han Sans">Black Han Sans</option>
+            <option value="Nanum Gothic">Nanum Gothic</option>
+            <option value="Nanum Pen Script">Nanum Pen Script</option>
+          </select>
+        </form>
+        <br />
+
+        <form>
+          <select id="select-font-size">
+            <option value="">Font size</option>
+            <option value="1">10px</option>
+            <option value="2">13px</option>
+            <option value="3">16px</option>
+            <option value="4">18px</option>
+            <option value="5">24px</option>
+            <option value="6">32px</option>
+            <option value="7">48px</option>
+          </select>
+        </form>
+        <br />
+
+        <div class="controls__btns">
+          <button id="btn-bold" title="진하게">
+            <b>B</b>
+          </button>
+          <button id="btn-italic" title="기울기">
+            <i>I</i>
+          </button>
+          <button id="btn-underline" title="밑줄">
+            <u>U</u>
+          </button>
+          <button id="btn-strike" title="취소선">
+            <s>S</s>
+          </button>
+          <button id="btn-ordered-list" title="숫자목록">OL</button>
+          <button id="btn-unordered-list" title="기호목록">UL</button>
+        </div>
+      </div>
+    </aside>
+
+    <div id="editor" contenteditable="true">
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+      <p></p>
+      <hr />
+    </div>
+
+    <script src="memo.js"></script>
+  </body>
+</html>

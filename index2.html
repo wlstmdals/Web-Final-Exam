@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS그림판</title>
+  </head>
+  <body>
+    <div class="cursor cursor_range"></div>
+    <canvas id="jsCanvas" class="canvas"> </canvas>
+
+    <aside class="aside">
+      <div class="header" style="color: white">
+        Click here
+        <hr />
+      </div>
+      <button id="jsStatus">Status</button>
+      <div class="controls">
+        <div class="controls__range">
+          <input
+            type="range"
+            id="jsRange"
+            min="0.1"
+            max="5.0"
+            value="2.5"
+            step="0.1"
+          />
+        </div>
+        <div class="controls__btns">
+          <button id="jsMode">Paint</button><br />
+          <button id="jsFill">Fill</button><br />
+
+          <button id="jsRect">□</button><br />
+          <button id="jsCirc">○</button><br />
+          <button id="jsTri">△</button><br />
+          <button id="jsErase">Erase</button><br />
+          <button id="jsEraseall">Erase All</button><br />
+          <button id="jsSave">Save</button><br />
+        </div>
+        <div class="controls__colors" id="#jsColors">
+          <div class="custom__color">
+            <input type="color" id="jsColorCustom" />
+          </div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ff0000"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ff5e00"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ffbb00"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ffe400"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #abf200"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #1ddb16"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #00d8ff"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #0054ff"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #0100ff"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #5f00ff"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ff00dd"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ff007f"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #000000"
+          ></div>
+          <div
+            class="controls__color jsColor"
+            style="background-color: #ffffff"
+          ></div>
+        </div>
+        <br />
+        <div class="checks">
+          <div id="jsCheck" class="check"></div>
+          <div id="jsCheck2" class="check"></div>
+        </div>
+        <details>
+          <summary style="color: white" align="center">more colors</summary>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffd8d8"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #fae0d4"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #faecc5"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #faf4c0"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #e4f7ba"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #cefbc9"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d4f4fa"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d9e5ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #dad9ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #e8d9ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffd9fa"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffd9ec"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f6f6f6"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #eaeaea"
+              ></div>
+            </div>
+          </div>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffa7a7"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffc19e"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffe08c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #faed7d"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #cef279"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #b7f0b1"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #b2ebf4"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #b2ccff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #b5b2ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d1b2ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffb2f5"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #ffb2d9"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d5d5d5"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #bdbdbd"
+              ></div>
+            </div>
+          </div>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f15f5f"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f29661"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f2cb61"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #e5d85c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #bce55c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #86e57f"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #5cd1e5"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #6799ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #6b66ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #a566ff"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f361dc"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #f361a6"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #a6a6a6"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #8c8c8c"
+              ></div>
+            </div>
+          </div>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #cc3d3d"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #cc723d"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #cca63d"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #c4b73b"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #9fc93c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #47c83e"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #3db7cc"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #4374d9"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #4641d9"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #8041d9"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d941c5"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #d9418c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #747474"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #5d5d5d"
+              ></div>
+            </div>
+          </div>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #980000"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #993800"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #997000"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #998a00"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #6b9900"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #2f9d27"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #008299"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #003399"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #050099"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #3f0099"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #990085"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #99004c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #4c4c4c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #353535"
+              ></div>
+            </div>
+          </div>
+          <div class="controls3">
+            <div class="controls__colors" id="JSColors">
+              <div
+                class="controls__color jsColor"
+                style="background-color: #670000"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #662500"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #664b00"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #665c00"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #476600"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #22741c"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #005766"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #002266"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #030066"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #2a0066"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #660058"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #660033"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #212121"
+              ></div>
+              <div
+                class="controls__color jsColor"
+                style="background-color: #191919"
+              ></div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </aside>
+
+    <script src="app.js"></script>
+  </body>
+</html>
